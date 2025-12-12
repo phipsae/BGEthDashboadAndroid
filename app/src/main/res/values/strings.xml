@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">BG Eth Tracker</string>
     <string name="widget_name">ETH &amp; Gas</string>
+    <string name="widget_name_small">ETH &amp; Gas Small</string>
+    <string name="widget_name_medium">ETH &amp; Gas Medium</string>
     <string name="widget_description">Track Ethereum price and gas fees at a glance.</string>
+    <string name="widget_description_small">Compact widget showing ETH price and gas fees.</string>
+    <string name="widget_description_medium">Detailed widget with ETH price and gas indicator.</string>
 </resources>

@@ -25,17 +25,30 @@
             </intent-filter>
         </activity>
 
-        <!-- ETH & Gas Widget -->
+        <!-- ETH & Gas Widget - Small (2x2) -->
         <receiver
-            android:name=".widget.EthGasWidgetReceiver"
+            android:name=".widget.EthGasWidgetSmallReceiver"
             android:exported="true"
-            android:label="@string/widget_name">
+            android:label="@string/widget_name_small">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/eth_gas_widget_info" />
+                android:resource="@xml/eth_gas_widget_small_info" />
+        </receiver>
+
+        <!-- ETH & Gas Widget - Medium (4x2) -->
+        <receiver
+            android:name=".widget.EthGasWidgetMediumReceiver"
+            android:exported="true"
+            android:label="@string/widget_name_medium">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/eth_gas_widget_medium_info" />
         </receiver>
     </application>
 

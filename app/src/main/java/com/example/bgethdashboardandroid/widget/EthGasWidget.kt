@@ -101,10 +101,10 @@ class EthGasWidget : GlanceAppWidget() {
                 )
             }
 
-            // Main content - vertically centered, left aligned
+            // Main content - vertically and horizontally centered
             Column(
                 modifier = GlanceModifier.fillMaxSize(),
-                horizontalAlignment = Alignment.Start,
+                horizontalAlignment = Alignment.CenterHorizontally,
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 // Ethereum label
@@ -117,7 +117,7 @@ class EthGasWidget : GlanceAppWidget() {
                     )
                 )
 
-                Spacer(modifier = GlanceModifier.height(2.dp))
+                Spacer(modifier = GlanceModifier.height(4.dp))
 
                 // ETH Price - format: "3.077 $"
                 Text(
@@ -129,7 +129,7 @@ class EthGasWidget : GlanceAppWidget() {
                     )
                 )
 
-                Spacer(modifier = GlanceModifier.height(6.dp))
+                Spacer(modifier = GlanceModifier.height(8.dp))
 
                 // Gas row
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -187,7 +187,7 @@ class EthGasWidget : GlanceAppWidget() {
         Box(
             modifier = GlanceModifier
                 .fillMaxSize()
-                .padding(16.dp)
+                .padding(20.dp)
         ) {
             // BG Castle Logo in top right (no tint - show original purple color)
             Box(
@@ -197,16 +197,16 @@ class EthGasWidget : GlanceAppWidget() {
                 Image(
                     provider = ImageProvider(R.drawable.ic_bg_logo),
                     contentDescription = "BG Logo",
-                    modifier = GlanceModifier.size(24.dp)
+                    modifier = GlanceModifier.size(28.dp)
                 )
             }
 
-            // Main content - two columns
+            // Main content - two columns, vertically centered
             Row(
                 modifier = GlanceModifier.fillMaxSize(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // ETH Price section
+                // ETH Price section (left column)
                 Column(
                     modifier = GlanceModifier.defaultWeight(),
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -216,29 +216,29 @@ class EthGasWidget : GlanceAppWidget() {
                         text = "Ethereum",
                         style = TextStyle(
                             color = ColorProvider(WidgetColors.LabelColor),
-                            fontSize = 13.sp,
+                            fontSize = 14.sp,
                             fontWeight = FontWeight.Medium
                         )
                     )
 
-                    Spacer(modifier = GlanceModifier.height(4.dp))
+                    Spacer(modifier = GlanceModifier.height(6.dp))
 
                     Text(
                         text = data.ethPrice,
                         style = TextStyle(
                             color = ColorProvider(WidgetColors.PrimaryText),
-                            fontSize = 32.sp,
+                            fontSize = 36.sp,
                             fontWeight = FontWeight.Bold
                         )
                     )
 
-                    Spacer(modifier = GlanceModifier.height(4.dp))
+                    Spacer(modifier = GlanceModifier.height(6.dp))
 
                     Text(
                         text = data.lastUpdated,
                         style = TextStyle(
                             color = ColorProvider(WidgetColors.TertiaryText),
-                            fontSize = 12.sp,
+                            fontSize = 13.sp,
                             fontWeight = FontWeight.Medium
                         )
                     )
@@ -248,11 +248,11 @@ class EthGasWidget : GlanceAppWidget() {
                 Box(
                     modifier = GlanceModifier
                         .width(1.dp)
-                        .height(70.dp)
+                        .height(80.dp)
                         .background(WidgetColors.DividerColor)
                 ) {}
 
-                // Gas section
+                // Gas section (right column)
                 Column(
                     modifier = GlanceModifier.defaultWeight(),
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -263,7 +263,7 @@ class EthGasWidget : GlanceAppWidget() {
                         Image(
                             provider = ImageProvider(R.drawable.ic_gas_pump),
                             contentDescription = "Gas",
-                            modifier = GlanceModifier.size(14.dp),
+                            modifier = GlanceModifier.size(16.dp),
                             colorFilter = ColorFilter.tint(ColorProvider(WidgetColors.CyanAccent))
                         )
                         Spacer(modifier = GlanceModifier.width(6.dp))
@@ -271,33 +271,35 @@ class EthGasWidget : GlanceAppWidget() {
                             text = "Gas",
                             style = TextStyle(
                                 color = ColorProvider(WidgetColors.LabelColor),
-                                fontSize = 13.sp,
+                                fontSize = 14.sp,
                                 fontWeight = FontWeight.Medium
                             )
                         )
                     }
 
-                    Spacer(modifier = GlanceModifier.height(6.dp))
+                    Spacer(modifier = GlanceModifier.height(8.dp))
 
                     Text(
                         text = data.gasPrice,
                         style = TextStyle(
                             color = ColorProvider(WidgetColors.PrimaryText),
-                            fontSize = 24.sp,
+                            fontSize = 32.sp,
                             fontWeight = FontWeight.Bold
                         )
                     )
+
+                    Spacer(modifier = GlanceModifier.height(2.dp))
 
                     Text(
                         text = "gwei",
                         style = TextStyle(
                             color = ColorProvider(WidgetColors.LabelColor),
-                            fontSize = 13.sp,
+                            fontSize = 14.sp,
                             fontWeight = FontWeight.Medium
                         )
                     )
 
-                    Spacer(modifier = GlanceModifier.height(8.dp))
+                    Spacer(modifier = GlanceModifier.height(10.dp))
 
                     // Gas level indicator (5 bars)
                     GasLevelIndicator(level = data.gasLevel)
@@ -313,7 +315,7 @@ class EthGasWidget : GlanceAppWidget() {
                     provider = ImageProvider(R.drawable.ic_refresh),
                     contentDescription = "Refresh",
                     modifier = GlanceModifier
-                        .size(18.dp)
+                        .size(20.dp)
                         .clickable(actionRunCallback<RefreshWidgetAction>()),
                     colorFilter = ColorFilter.tint(ColorProvider(WidgetColors.TertiaryText))
                 )
@@ -328,14 +330,14 @@ class EthGasWidget : GlanceAppWidget() {
                 val isActive = i <= level
                 Box(
                     modifier = GlanceModifier
-                        .width(10.dp)
-                        .height(5.dp)
+                        .width(12.dp)
+                        .height(6.dp)
                         .background(
                             if (isActive) WidgetColors.CyanAccent else WidgetColors.InactiveBar
                         )
                 ) {}
                 if (i < 5) {
-                    Spacer(modifier = GlanceModifier.width(4.dp))
+                    Spacer(modifier = GlanceModifier.width(5.dp))
                 }
             }
         }
