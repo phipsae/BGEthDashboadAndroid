@@ -17,14 +17,18 @@ class WidgetUpdateWorker(
 ) : CoroutineWorker(context, params) {
 
     override suspend fun doWork(): Result {
+        Log.d(TAG, "Starting widget update...")
         return try {
             val data = fetchWidgetData()
+            Log.d(TAG, "Fetched data: ETH=${data.ethPrice}, Gas=${data.gasPrice}")
+
             EthGasWidgetDataStore.saveData(context, data)
+            Log.d(TAG, "Data saved to DataStore")
 
             // Update all widget instances
             EthGasWidget().updateAll(context)
+            Log.d(TAG, "Widget updated successfully!")
 
-            Log.d(TAG, "Widget updated: ETH=${data.ethPrice}, Gas=${data.gasPrice}")
             Result.success()
         } catch (e: Exception) {
             Log.e(TAG, "Failed to update widget", e)
@@ -33,11 +37,16 @@ class WidgetUpdateWorker(
     }
 
     private suspend fun fetchWidgetData(): EthGasData = coroutineScope {
+        Log.d(TAG, "Fetching data from API...")
+
         val ethPriceDeferred = async { BGAPIService.fetchEthPrice() }
         val gasPriceDeferred = async { BGAPIService.fetchGasPrice() }
 
         val ethResult = ethPriceDeferred.await()
         val gasResult = gasPriceDeferred.await()
+
+        Log.d(TAG, "ETH Result: ${ethResult.getOrNull()}, Error: ${ethResult.exceptionOrNull()?.message}")
+        Log.d(TAG, "Gas Result: ${gasResult.getOrNull()}, Error: ${gasResult.exceptionOrNull()?.message}")
 
         val ethPrice = ethResult.getOrNull()
         val gasPrice = gasResult.getOrNull()

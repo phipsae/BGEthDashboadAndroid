@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BGETHDashboardAndroid</string>
+    <string name="app_name">BG Eth Tracker</string>
     <string name="widget_name">ETH &amp; Gas</string>
     <string name="widget_description">Track Ethereum price and gas fees at a glance.</string>
 </resources>

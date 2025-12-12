@@ -1,17 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
-    android:height="24dp"
-    android:viewportWidth="24"
-    android:viewportHeight="24">
+    android:height="22dp"
+    android:viewportWidth="153"
+    android:viewportHeight="140">
 
-    <!-- Simple "BG" text-style logo -->
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M3,4h5c1.1,0 2,0.5 2.5,1.3 0.3,0.5 0.5,1 0.5,1.7 0,0.8 -0.3,1.5 -0.8,2 0.7,0.5 1.2,1.4 1.2,2.5 0,1.9 -1.3,3.5 -3.4,3.5H3V4zM5,6v3h2.5c0.8,0 1.5,-0.7 1.5,-1.5S8.3,6 7.5,6H5zM5,11v3h3c1,0 1.5,-0.7 1.5,-1.5S9,11 8,11H5z"/>
+    <!-- BuidlGuidl Castle Logo -->
 
+    <!-- Bottom left square -->
     <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M13,9c0,-2.8 2.2,-5 5,-5s5,2.2 5,5v3c0,2.8 -2.2,5 -5,5h-2v-2h2c1.7,0 3,-1.3 3,-3v-3c0,-1.7 -1.3,-3 -3,-3s-3,1.3 -3,3v1h3v2h-5V9z"/>
+        android:fillColor="#7877FF"
+        android:pathData="M59.62,83.84 L0,83.84 L0,139.74 L59.62,139.74 Z"/>
+
+    <!-- Bottom right square -->
+    <path
+        android:fillColor="#7877FF"
+        android:pathData="M152.78,83.84 L93.16,83.84 L93.16,139.74 L152.78,139.74 Z"/>
+
+    <!-- Main castle body (center) -->
+    <path
+        android:fillColor="#7877FF"
+        android:pathData="M115.51,54.03 L35.4,54.03 L35.4,111.79 L115.51,111.79 Z"/>
+
+    <!-- Left tower -->
+    <path
+        android:fillColor="#7877FF"
+        android:pathData="M24.22,54.03 L0,54.03 L0,111.79 L24.22,111.79 Z"/>
+
+    <!-- Right tower -->
+    <path
+        android:fillColor="#7877FF"
+        android:pathData="M152.78,54.03 L128.56,54.03 L128.56,111.79 L152.78,111.79 Z"/>
+
+    <!-- Top right battlement -->
+    <path
+        android:fillColor="#7877FF"
+        android:pathData="M149.05,27.95 L149.05,0 L85.7,0 L85.7,27.95 Z"/>
+
+    <!-- Top left battlement -->
+    <path
+        android:fillColor="#7877FF"
+        android:pathData="M93.16,0 L59.62,0 L59.62,54.03 L93.16,54.03 Z"/>
 
 </vector>
