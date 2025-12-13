@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/widget_background"
-    android:padding="20dp">
+    android:padding="14dp">
 
     <!-- BG Castle Logo top right -->
     <ImageView
@@ -42,27 +42,27 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="2dp"
                 android:text="3.093 $"
                 android:textColor="#FFFFFF"
-                android:textSize="36sp"
+                android:textSize="32sp"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-medium" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="2dp"
                 android:text="--:--"
                 android:textColor="#66FFFFFF"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:fontFamily="sans-serif-medium" />
         </LinearLayout>
 
         <!-- Divider -->
         <View
             android:layout_width="1dp"
-            android:layout_height="80dp"
+            android:layout_height="60dp"
             android:layout_gravity="center_vertical"
             android:background="#26FFFFFF" />
 
@@ -99,27 +99,27 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="2dp"
                 android:text="0.030"
                 android:textColor="#FFFFFF"
-                android:textSize="32sp"
+                android:textSize="28sp"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-medium" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="1dp"
                 android:text="gwei"
                 android:textColor="#99FFFFFF"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:fontFamily="sans-serif-medium" />
 
             <!-- Gas level indicator -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="6dp"
                 android:orientation="horizontal">
 
                 <View
