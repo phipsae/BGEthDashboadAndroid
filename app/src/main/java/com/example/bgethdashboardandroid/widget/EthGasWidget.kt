@@ -352,14 +352,16 @@ data class EthGasData(
     val lastUpdated: String = "--:--"
 ) {
     // Calculate gas level (1-5) based on gwei price
-    // <0.5 = Ultra-low, 0.5-3 = Typical, 3-15 = Busy, 15-60 = High, >60 = Spike
+    // Adjusted for post-Dencun era (Dec 2025) with ultra-low gas prices
+    // Data: Dec 11 avg=0.88 gwei, Dec 12 real-time=0.02-0.03 gwei, 1yr ago=21.74 gwei (-96%)
+    // <0.05 = Ultra-low, 0.05-0.3 = Low, 0.3-1.5 = Moderate, 1.5-5 = Busy, >5 = High
     val gasLevel: Int
         get() = when {
-            gasPriceValue < 0.5 -> 1
-            gasPriceValue < 3 -> 2
-            gasPriceValue < 15 -> 3
-            gasPriceValue < 60 -> 4
-            else -> 5
+            gasPriceValue < 0.05 -> 1   // Ultra-low: very quiet (current baseline ~0.02-0.03)
+            gasPriceValue < 0.3 -> 2    // Low: normal quiet period
+            gasPriceValue < 1.5 -> 3    // Moderate: typical daily average (~0.88 yesterday)
+            gasPriceValue < 5.0 -> 4    // Busy: higher than usual
+            else -> 5                    // High: spike/congestion (rare in post-Dencun era)
         }
 
     companion object {
